@@ -20,7 +20,7 @@
 #include <stddef.h>
 
 #include "sffs_filelist.h"
-#include <sys/sffs/sffs_list.h>
+#include "sffs_list.h"
 
 
 #define DEBUG_LEVEL 10

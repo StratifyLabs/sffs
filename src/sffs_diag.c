@@ -23,10 +23,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <sys/sffs/sffs_diag.h>
+#include "sffs_diag.h"
 #include "sffs_dir.h"
 #include "sffs_filelist.h"
-#include <sys/sffs/sffs_list.h>
+#include "sffs_list.h"
 #include "sffs_local.h"
 #include "sffs_serialno.h"
 #include <unistd.h>
@@ -258,10 +258,12 @@ int sffs_diag_get(const void * cfg, sffs_diag_t * dest){
 	int free_blocks;
 	int dirty_blocks;
 	int written_blocks;
+	int blocks_per_eraseable;
 
 	memset(dest, 0, sizeof(sffs_diag_t));
 	erase_size = sffs_dev_geterasesize(cfg);
 	size = sffs_dev_getsize(cfg) - erase_size*2;
+	blocks_per_eraseable = erase_size / BLOCK_SIZE;
 
 	for(j=0*BLOCK_SIZE; j < size; j+=erase_size){
 		eraseable = 1;
@@ -338,7 +340,6 @@ int sffs_diag_getfile(const void * cfg, const char * path, sffs_diag_file_t * de
 	int addr;
 	int size;
 	int erase_size;
-	int blocks_per_eraseable;
 	sffs_block_hdr_t hdr;
 	serial_t serialno;
 	sffs_dir_lookup_t entry;
@@ -364,7 +365,6 @@ int sffs_diag_getfile(const void * cfg, const char * path, sffs_diag_file_t * de
 	memset(dest, 0, sizeof(sffs_diag_t));
 	size = sffs_dev_getsize(cfg);
 	erase_size = sffs_dev_geterasesize(cfg);
-	blocks_per_eraseable = erase_size / BLOCK_SIZE;
 
 	for(j=0; j < size; j+=erase_size){
 

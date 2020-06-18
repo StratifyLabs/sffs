@@ -26,7 +26,7 @@
 #include <unistd.h>
 #include <stdint.h>
 
-#include <sys/sffs/sffs_dev.h>
+#include "sffs_dev.h"
 
 
 #define ERASE_SIZE 4096

@@ -27,7 +27,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include "sysfs.h"
+#include <sos/fs/sysfs.h>
 
 const char sysfs_validset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.";
 

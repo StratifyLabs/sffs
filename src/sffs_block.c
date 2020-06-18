@@ -22,7 +22,7 @@
 #include <stddef.h>
 
 #include "sffs_block.h"
-#include <sys/sffs/sffs_scratch.h>
+#include "sffs_scratch.h"
 #include "sffs_serialno.h"
 
 #define DEBUG_LEVEL 10

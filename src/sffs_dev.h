@@ -23,7 +23,7 @@
 
 #include <pthread.h>
 
-#include "sos/fs/sffs.h"
+#include "sffs.h"
 
 /*
  * The dev is the device that is used to store the data.

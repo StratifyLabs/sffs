@@ -37,13 +37,11 @@
 #include "sffs_file.h"
 #include "sffs_block.h"
 #include "sffs_scratch.h"
-#include "sos/fs/sffs.h"
-#include "sos/fs/sysfs.h"
+#include "sffs.h"
 
 extern int pthread_mutex_force_unlock(pthread_mutex_t *mutex);
 
 #define OPENDIR_HANDLE ((void*)0x1234567)
-
 
 #define DEBUG_LEVEL 1
 

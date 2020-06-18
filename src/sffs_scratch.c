@@ -25,9 +25,9 @@
 #include <string.h>
 
 #include "sffs_block.h"
-#include <sys/sffs/sffs_dev.h>
-#include <sys/sffs/sffs_scratch.h>
-#include <sys/sffs/sffs_tp.h>
+#include "sffs_dev.h"
+#include "sffs_scratch.h"
+#include "sffs_tp.h"
 
 
 #define DEBUG_LEVEL 4

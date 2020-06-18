@@ -24,7 +24,7 @@
 
 #include <stdint.h>
 
-#include "../sffs/sffs_block.h"
+#include "sffs_block.h"
 
 /*
  *
@@ -47,9 +47,9 @@
 typedef struct MCU_PACK {
 	sffs_block_data_t block_data;
 	block_t current_block;
-	int8_t current_item;
-	uint8_t total_in_block;
-	uint8_t item_size;
+	s8 current_item;
+	u8 total_in_block;
+	u8 item_size;
 	int (*is_free)(void*);
 } sffs_list_t;
 
@@ -82,7 +82,7 @@ int sffs_list_close(const void * cfg, block_t list_block);
 block_t sffs_list_consolidate(const void * cfg,
 		serial_t serialno,
 		block_t list_block,
-		uint8_t type,
+		u8 type,
 		int item_size,
 		int (*is_dirty)(void*),
 		int (*is_free)(void*));

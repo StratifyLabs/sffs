@@ -22,7 +22,7 @@
 #ifndef SFFS_DIR_H_
 #define SFFS_DIR_H_
 
-#include "../sffs/sffs_local.h"
+#include "sffs_local.h"
 
 typedef struct {
 	serial_t serialno;
@@ -30,7 +30,6 @@ typedef struct {
 
 /*
  *
- * Currently, there is only one directly. The root directly.
  *
  * The root directly has a list of serial numbers that are stored.
  * When a file is looked up, each item in the directory serial
@@ -39,15 +38,19 @@ typedef struct {
  * the file header and the first segment of file data.
  *
  *
- *
- *
  */
-
 #define SFFS_DIR_PARENT_EXISTS 1
 #define SFFS_DIR_PATH_EXISTS 2
 
 int sffs_dir_exists(const void * cfg, const char * path, sffs_dir_lookup_t * dest, int amode);
 int sffs_dir_lookup(const void * cfg, const char * path, sffs_dir_lookup_t * dest, int amode);
+int sffs_dir_read(const void * cfg);
+int sffs_dir_open(const void * cfg);
+int sffs_dir_close(const void * cfg);
 
+#if SFFS_IS_FULL_FEATURED
+int sffs_dir_create(const void * cfg, const char * path, int o_mode);
+int sffs_dir_remove(const void * cfg, const char * path);
+#endif
 
 #endif /* SFFS_DIR_H_ */

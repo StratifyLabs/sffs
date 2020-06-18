@@ -29,9 +29,9 @@
 #include <stdint.h>
 
 #ifdef __SIM__
-#include "../sffs/sim_device.h"
+#include "sim_device.h"
 #else
-#include "sos/fs/devfs.h"
+#include <sos/fs/devfs.h>
 #include "mcu/core.h"
 #endif
 #include "sffs_dev.h"

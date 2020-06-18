@@ -22,7 +22,7 @@
 #ifndef SFFS_FILELIST_H_
 #define SFFS_FILELIST_H_
 
-#include "../sffs/sffs_block.h"
+#include "sffs_block.h"
 #include "sffs_list.h"
 
 #define SFFS_FILELIST_BLOCK_ISFREE 0xFFFF

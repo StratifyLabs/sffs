@@ -25,10 +25,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <errno.h>
-#include "sos/fs/sysfs.h"
+#include <sos/fs/sysfs.h>
 
 #include "sffs_dir.h"
-#include <sys/sffs/sffs_list.h>
+#include "sffs_list.h"
 #include "sffs_serialno.h"
 
 #define DEBUG_LEVEL 10
@@ -98,6 +98,19 @@ int sffs_dir_exists(const void * cfg, const char * path, sffs_dir_lookup_t * des
 
 	return SFFS_DIR_PARENT_EXISTS; //parent only exists
 }
+
+
+#if SFFS_IS_FULL_FEATURED
+
+int sffs_dir_create(const void * cfg, const char * path, int o_mode){
+	return -1;
+}
+
+int sffs_dir_remove(const void * cfg, const char * path){
+	return -1;
+}
+
+#endif
 
 
 

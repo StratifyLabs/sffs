@@ -24,10 +24,10 @@
 
 #include <stdbool.h>
 
-#include "sos/fs/sffs.h"
-#include "../sffs/sffs_block.h"
-#include "../sffs/sffs_dir.h"
-#include "../sffs/sffs_local.h"
+#include "sffs.h"
+#include "sffs_block.h"
+#include "sffs_dir.h"
+#include "sffs_local.h"
 
 
 /*

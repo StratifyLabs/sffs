@@ -24,7 +24,7 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <sys/sffs/sffs_list.h>
+#include "sffs_list.h"
 #include "sffs_serialno.h"
 
 #define DEBUG_LEVEL 10

@@ -1,0 +1,25 @@
+
+set(SOURCES
+	sffs_block.c
+	sffs_block.h
+	sffs_dev.c
+	sffs_dev.h
+	sffs_diag.c
+	sffs_diag.h
+	sffs_dir.c
+	sffs_dir.h
+	sffs_file.c
+	sffs_file.h
+	sffs_filelist.c
+	sffs_filelist.h
+	sffs_list.c
+	sffs_list.h
+	sffs_local.h
+	sffs_scratch.c
+	sffs_scratch.h
+	sffs_serialno.c
+	sffs_serialno.h
+	sffs_tp.c
+	sffs_tp.h
+	sffs.c
+	PARENT_SCOPE)

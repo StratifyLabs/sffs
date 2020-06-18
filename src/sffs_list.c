@@ -25,7 +25,7 @@
 #include <string.h>
 
 #include "sffs_block.h"
-#include <sys/sffs/sffs_list.h>
+#include "sffs_list.h"
 
 #define DEBUG_LEVEL 10
 
@@ -33,11 +33,11 @@ static int calc_total_items(const void * cfg, int item_size);
 static void * get_item(sffs_list_block_t * list, int n, int item_size);
 static int get_hdr_addr(const void * cfg, block_t block);
 static int get_item_addr(const void * cfg, block_t block, int item, int item_size);
-static block_t list_add_block(const void * cfg, serial_t serialno, uint8_t type, block_t list_block);
+static block_t list_add_block(const void * cfg, serial_t serialno, u8 type, block_t list_block);
 static int list_update(const void * cfg, sffs_list_t * list, block_t prev_block);
-static bool list_typeisvalid(uint8_t type);
+static bool list_typeisvalid(u8 type);
 
-bool list_typeisvalid(uint8_t type){
+bool list_typeisvalid(u8 type){
 	if ( (type & BLOCK_TYPE_LIST_FLAG) == 0 ){
 		return false;
 	}
@@ -66,7 +66,7 @@ int get_item_addr(const void * cfg, block_t block, int item, int item_size){
 	return block * BLOCK_SIZE + BLOCK_HEADER_SIZE + sizeof(sffs_list_hdr_t) + item * item_size;
 }
 
-block_t list_add_block(const void * cfg, serial_t serialno, uint8_t type, block_t list_block){
+block_t list_add_block(const void * cfg, serial_t serialno, u8 type, block_t list_block){
 	sffs_list_hdr_t list_hdr;
 	int addr;
 	//get a new block and link the new block to this list
@@ -189,7 +189,7 @@ int sffs_list_getnext(const void * cfg, sffs_list_t * list, void * item, int * a
 	return 0;
 }
 
-int sffs_list_setblockstatus(const void * cfg, block_t list_block, uint8_t status){
+int sffs_list_setblockstatus(const void * cfg, block_t list_block, u8 status){
 	sffs_list_hdr_t hdr;
 	block_t tmp_block;
 	block_t last_block;
@@ -243,7 +243,7 @@ int sffs_list_close(const void * cfg, block_t list_block){
 }
 
 
-int sffs_list_append(const void * cfg, sffs_list_t * list, uint8_t type, void * item, int * addr){
+int sffs_list_append(const void * cfg, sffs_list_t * list, u8 type, void * item, int * addr){
 	int dev_addr;
 	block_t next_block;
 	int ret;
@@ -298,7 +298,7 @@ int sffs_list_append(const void * cfg, sffs_list_t * list, uint8_t type, void * 
 block_t sffs_list_consolidate(const void * cfg,
 		serial_t serialno,
 		block_t list_block,
-		uint8_t type,
+		u8 type,
 		int item_size,
 		int (*is_dirty)(void*),
 		int (*is_free)(void*)){

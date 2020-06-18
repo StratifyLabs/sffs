@@ -21,7 +21,7 @@
 #ifndef SFFS_SCRATCH_H_
 #define SFFS_SCRATCH_H_
 
-#include "../sffs/sffs_local.h"
+#include "sffs_local.h"
 
 
 /*

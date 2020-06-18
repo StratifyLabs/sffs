@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "sffs_local.h"
-#include <sys/sffs/sffs_tp.h>
+#include "sffs_tp.h"
 #include <time.h>
 
 
